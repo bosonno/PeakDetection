@@ -16,10 +16,10 @@ The algorithm takes 3 inputs:
 
 ## Functions
 
-- begin()
-- detect()
-- getPeak()
-- getFilt()
+- [begin()](https://github.com/leandcesar/PeakDetection#begin)
+- [detect()](https://github.com/leandcesar/PeakDetection#detect)
+- [getPeak()](https://github.com/leandcesar/PeakDetection#getPeak)
+- [getFilt()](https://github.com/leandcesar/PeakDetection#getFilt)
 
 ### begin()
 
@@ -47,11 +47,11 @@ Adds a new data point to algorithm, calculates the standard deviations and movin
 
 #### Syntax
 
-```C++
+```
 peakdetection.detect(datapoint);
 ```
 
-#### getPeak()
+### getPeak()
 
 #### Description
 
@@ -59,11 +59,11 @@ Returns peak status {-1, 0, 1}, representing below, within or above standard dev
 
 #### Syntax
 
-```C++
+```
 double peak = peakdetection.getPeak();
 ```
 
-#### getFilt()
+### getFilt()
 
 #### Description
 
@@ -71,7 +71,7 @@ Returns the last data point filtered by the moving average.
 
 #### Syntax
 
-```C++
+```
 double filtered = peakdetection.getFilt();
 ```
 
@@ -80,7 +80,7 @@ double filtered = peakdetection.getFilt();
 To use the library:
 
 1. Download the zip and uncompress the downloaded file.
-2. Copy the folder to the Arduino libraries folder.
+2. Copy the folder to the Arduino libraries folder (_C:/Users/username/Documents/Arduino/libraries_).
 3. Rename it to PeakDetection.
 
 ## Example
@@ -113,7 +113,7 @@ void loop() {
 
 ### Output
 
-![Example output](example.gif)
+![Example output](https://github.com/leandcesar/PeakDetection/blob/master/examples/output.gif)
 
 ## Credits
 
