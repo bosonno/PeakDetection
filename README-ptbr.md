@@ -2,7 +2,7 @@
 
 PeakDetection é uma biblioteca Arduino para detecção de pico em tempo real em dados de sensores.
 
-[Read in english](https://github.com/leandcesar/PeakDetection/blob/master/README.gif).
+[Read in english](https://github.com/leandcesar/PeakDetection/blob/master/README.md).
 
 ## Algoritmo
 
