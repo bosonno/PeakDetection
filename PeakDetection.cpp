@@ -52,7 +52,7 @@ void PeakDetection::begin(int lag, int threshold, double influence) {
   }
 }
 
-void PeakDetection::detect(double newSample) {
+void PeakDetection::add(double newSample) {
   peak = 0;
   int i = index % lag; //current index
   int j = (index + 1) % lag; //next index

@@ -16,7 +16,7 @@ class PeakDetection {
     ~PeakDetection();
     void begin();
     void begin(int, int, double); //lag, threshold, influence
-    void detect(double);
+    void add(double);
     double getFilt();
     double getPeak();
 

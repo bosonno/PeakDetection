@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
   double data = (double)analogRead(pin)/512-1;
-  peakDetection.detect(data);
+  peakDetection.add(data);
   int peak = peakDetection.getPeak();
   double filtered = peakDetection.getFilt();
   Serial.print(data);
