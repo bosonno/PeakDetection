@@ -23,11 +23,7 @@ The algorithm takes 3 inputs:
 
 ### begin()
 
-#### Description
-
 Initialize PeakDetection object and configuration for tweaking parameters. If no parameters have been set, the default remains.
-
-#### Syntax
 
 ```C++
 peakdetection.begin(lag,threshold,influence);
@@ -41,11 +37,7 @@ peakdetection.begin(); //lag=32, threshold=2, influence=0.5
 
 ### detect()
 
-#### Description
-
 Adds a new data point to algorithm, calculates the standard deviations and moving average.
-
-#### Syntax
 
 ```
 peakdetection.detect(datapoint);
@@ -53,11 +45,7 @@ peakdetection.detect(datapoint);
 
 ### getPeak()
 
-#### Description
-
 Returns peak status {-1, 0, 1}, representing below, within or above standard deviation threshold, respectively.
-
-#### Syntax
 
 ```
 double peak = peakdetection.getPeak();
@@ -65,11 +53,7 @@ double peak = peakdetection.getPeak();
 
 ### getFilt()
 
-#### Description
-
 Returns the last data point filtered by the moving average.
-
-#### Syntax
 
 ```
 double filtered = peakdetection.getFilt();
