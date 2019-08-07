@@ -1,22 +1,22 @@
 # PeakDetection
 
-PeakDetection é uma biblioteca Arduino para detecção de pico em tempo real em dados de sensores.
+PeakDetection Ã© uma biblioteca Arduino para detecÃ§Ã£o de pico em tempo real em dados de sensores.
 
 [Read in english](https://github.com/leandcesar/PeakDetection/blob/master/README.gif).
 
 ## Algoritmo
 
-Baseia-se no princípio de dispersão: se um novo data point é um número `x` de desvios-padrão de uma média móvel, o algoritmo sinaliza (também chamado de z-score).
+Baseia-se no [princÃ­pio de dispersÃ£o](https://pt.wikipedia.org/wiki/Teoria_da_dispers%C3%A3o): se um novo data point Ã© um nÃºmero `x` de [desvios-padrÃ£o](https://pt.wikipedia.org/wiki/Desvio_padr%C3%A3o) de uma [mÃ©dia mÃ³vel](https://pt.wikipedia.org/wiki/M%C3%A9dia_m%C3%B3vel), o algoritmo sinaliza (tambÃ©m chamado de z-score).
 
 O algoritmo tem 3 entradas:
 
-* `lag`: é o atraso da janela em movimento (tamanho da média móvel). Esse parâmetro determina o quanto seus dados serão suavizados e o quanto o algoritmo é adaptável a mudanças na média de longo prazo dos dados. Quanto mais estacionário for o seu dado, mais atrasos você deve incluir. Se os seus dados contiverem tendências que variam com o tempo, considere a rapidez com que você deseja que o algoritmo se adapte a essas tendências.
+* `lag`: Ã© o atraso da janela em movimento (tamanho da mÃ©dia mÃ³vel). Esse parÃ¢metro determina o quanto seus dados serÃ£o suavizados e o quanto o algoritmo Ã© adaptÃ¡vel a mudanÃ§as na mÃ©dia de longo prazo dos dados. Quanto mais estacionÃ¡rio for o seu dado, mais atrasos vocÃª deve incluir. Se os seus dados contiverem tendÃªncias que variam com o tempo, considere a rapidez com que vocÃª deseja que o algoritmo se adapte a essas tendÃªncias.
 
-* `threshold`: este parâmetro é o número de desvios-padrão da média móvel acima da qual o algoritmo classificará um novo data point como sendo um sinal. Este parâmetro deve ser definido com base em quantos sinais você espera. O threshold, portanto, influencia diretamente a sensibilidade do algoritmo e, portanto, a frequência com que o algoritmo sinaliza.
+* `threshold`: este parÃ¢metro Ã© o nÃºmero de desvios-padrÃ£o da mÃ©dia mÃ³vel acima da qual o algoritmo classificarÃ¡ um novo data point como sendo um sinal. Este parÃ¢metro deve ser definido com base em quantos sinais vocÃª espera. O threshold, portanto, influencia diretamente a sensibilidade do algoritmo e, portanto, a frequÃªncia com que o algoritmo sinaliza.
 
-* `influence`: é o z-score no qual o algoritmo sinaliza. Este parâmetro determina a influência dos sinais no threshold de detecção do algoritmo. Se colocar em 0, os sinais não terão influência sobre o threshold, de forma que os sinais futuros serão detectados com base em um threshold que é calculado com uma média e um desvio-padrão que não é influenciado por sinais anteriores. Você deve colocar esse parâmetro entre 0 e 1, dependendo da medida em que os sinais podem influenciar sistematicamente a tendência de variação de tempo dos dados.
+* `influence`: Ã© o z-score no qual o algoritmo sinaliza. Este parÃ¢metro determina a influÃªncia dos sinais no threshold de detecÃ§Ã£o do algoritmo. Se colocar em 0, os sinais nÃ£o terÃ£o influÃªncia sobre o threshold, de forma que os sinais futuros serÃ£o detectados com base em um threshold que Ã© calculado com uma mÃ©dia e um desvio-padrÃ£o que nÃ£o Ã© influenciado por sinais anteriores. VocÃª deve colocar esse parÃ¢metro entre 0 e 1, dependendo da medida em que os sinais podem influenciar sistematicamente a tendÃªncia de variaÃ§Ã£o de tempo dos dados.
 
-## Funções
+## FunÃ§Ãµes
 
 - begin()
 - add()
@@ -25,7 +25,7 @@ O algoritmo tem 3 entradas:
 
 ### begin()
 
-Inicializa o objeto PeakDetection e as configurações para os parâmetros de ajustes. Se nenhum parâmetro for definido, o padrão permanece.
+Inicializa o objeto PeakDetection e as configuraÃ§Ãµes para os parÃ¢metros de ajustes. Se nenhum parÃ¢metro for definido, o padrÃ£o permanece.
 
 ```C++
 peakdetection.begin(lag,threshold,influence);
@@ -39,7 +39,7 @@ peakdetection.begin(); //lag=32, threshold=2, influence=0.5
 
 ### add()
 
-Adiciona um novo data point ao algoritmo, calcula o desvio-padrão e a média móvel.
+Adiciona um novo data point ao algoritmo, calcula o desvio-padrÃ£o e a mÃ©dia mÃ³vel.
 
 ```
 peakdetection.add(datapoint);
@@ -47,7 +47,7 @@ peakdetection.add(datapoint);
 
 ### getPeak()
 
-Retorna o status do pico do último data point adicionado. {-1, 0, 1}, representando abaixo, dentro ou acima do threshold do desvio padrão, respectivamente.
+Retorna o status do pico do Ãºltimo data point adicionado. {-1, 0, 1}, representando abaixo, dentro ou acima do threshold do desvio padrÃ£o, respectivamente.
 
 ```
 double peak = peakdetection.getPeak();
@@ -55,13 +55,13 @@ double peak = peakdetection.getPeak();
 
 ### getFilt()
 
-Retorna o último data point filtrado pela média móvel.
+Retorna o Ãºltimo data point filtrado pela mÃ©dia mÃ³vel.
 
 ```
 double filtered = peakdetection.getFilt();
 ```
 
-## Instalação
+## InstalaÃ§Ã£o
 
 Para usar essa biblioteca:
 
@@ -71,7 +71,7 @@ Para usar essa biblioteca:
 
 ## Exemplo
 
-### Código
+### CÃ³digo
 
 ```C++
 #include <PeakDetection.h> // importa a biblioteca
@@ -79,28 +79,28 @@ Para usar essa biblioteca:
 PeakDetection peakDetection; // cria um objeto PeakDetection
 
 void setup() {
-  Serial.begin(9600); // define a taxa de dados para a comunicação serial
-  pinMode(A0, INPUT); // pino analógico usado para conectar o sensor
+  Serial.begin(9600); // define a taxa de dados para a comunicaÃ§Ã£o serial
+  pinMode(A0, INPUT); // pino analÃ³gico usado para conectar o sensor
   peakDetection.begin(48, 3, 0.6); // define o lag, threshold e influence
 }
 
 void loop() {
-    double data = (double)analogRead(A0)/512-1; // lê o valor do sensor e converte em um intervalo entre -1 e 1
+    double data = (double)analogRead(A0)/512-1; // lÃª o valor do sensor e converte em um intervalo entre -1 e 1
     peakDetection.add(data); // adiciona um novo data point
     int peak = peakDetection.getPeak(); // retorna 0, 1 ou -1
-    double filtered = peakDetection.getFilt(); // média móvel
+    double filtered = peakDetection.getFilt(); // mÃ©dia mÃ³vel
     Serial.print(data); // imprime o data point
     Serial.print(",");
     Serial.print(peak); // imprime o status do pico
     Serial.print(",");
-    Serial.println(filtered); // imprime a média móvel
+    Serial.println(filtered); // imprime a mÃ©dia mÃ³vel
 }
 ```
 
-### Saída
+### SaÃ­da
 
 ![Example output](https://github.com/leandcesar/PeakDetection/blob/master/examples/output.gif)
 
-## Créditos
+## CrÃ©ditos
 
 * [StackOverFlow](https://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data).
