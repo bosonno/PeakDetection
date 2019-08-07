@@ -17,7 +17,7 @@ The algorithm takes 3 inputs:
 ## Functions
 
 - begin()
-- detect()]
+- add()
 - getPeak()
 - getFilt()
 
@@ -35,17 +35,17 @@ Alternaly:
 peakdetection.begin(); //lag=32, threshold=2, influence=0.5
 ```
 
-### detect()
+### add()
 
 Adds a new data point to algorithm, calculates the standard deviations and moving average.
 
 ```
-peakdetection.detect(datapoint);
+peakdetection.add(datapoint);
 ```
 
 ### getPeak()
 
-Returns peak status {-1, 0, 1}, representing below, within or above standard deviation threshold, respectively.
+Returns peak status of the last data point added. {-1, 0, 1}, representing below, within or above standard deviation threshold, respectively.
 
 ```
 double peak = peakdetection.getPeak();
@@ -53,7 +53,7 @@ double peak = peakdetection.getPeak();
 
 ### getFilt()
 
-Returns the last data point filtered by the moving average.
+Returns last data point filtered by the moving average.
 
 ```
 double filtered = peakdetection.getFilt();
@@ -84,14 +84,14 @@ void setup() {
 
 void loop() {
     double data = (double)analogRead(A0)/512-1; // reads the value of the sensor and converts to a range between -1 and 1
-    peakDetection.detect(data); // adds a new data point
+    peakDetection.add(data); // adds a new data point
     int peak = peakDetection.getPeak(); // returns 0, 1 or -1
     double filtered = peakDetection.getFilt(); // moving average
     Serial.print(data); // print data
     Serial.print(",");
     Serial.print(peak); // print peak status
     Serial.print(",");
-    Serial.println(data); // print moving average
+    Serial.println(filtered); // print moving average
 }
 ```
 
