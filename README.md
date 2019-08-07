@@ -16,10 +16,10 @@ The algorithm takes 3 inputs:
 
 ## Functions
 
-- [begin()](https://github.com/leandcesar/PeakDetection/blob/master/README.md#begin)
-- [detect()](https://github.com/leandcesar/PeakDetection/blob/master/README.md#detect)
-- [getPeak()](https://github.com/leandcesar/PeakDetection/blob/master/README.md#getPeak)
-- [getFilt()](https://github.com/leandcesar/PeakDetection/blob/master/README.md#getFilt)
+- begin()
+- detect()]
+- getPeak()
+- getFilt()
 
 ### begin()
 
