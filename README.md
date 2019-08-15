@@ -105,6 +105,6 @@ void loop() {
 
 - Leandro César Cassimiro - leandcesar@hotmail.com - [@leandcesar](https://linktr.ee/leandcesar)
 
-## Credits
+## Acknowledgments
 
 * [StackOverFlow](https://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data).
