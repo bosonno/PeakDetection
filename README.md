@@ -16,14 +16,14 @@ The algorithm takes 3 inputs:
 
 * `influence`: is the z-score at which the algorithm signals. This parameter determines the influence of signals on the algorithm's detection threshold. If put at 0, signals have no influence on the threshold, such that future signals are detected based on a threshold that is calculated with a mean and standard deviation that is not influenced by past signals. You should put the influence parameter somewhere between 0 and 1, depending on the extent to which signals can systematically influence the time-varying trend of the data.
 
-## Functions
+### Functions
 
 - begin()
 - add()
 - getPeak()
 - getFilt()
 
-### begin()
+#### begin()
 
 Initialize PeakDetection object and configuration for tweaking parameters. If no parameters have been set, the default remains.
 
@@ -37,7 +37,7 @@ Alternaly:
 peakdetection.begin(); //lag=32, threshold=2, influence=0.5
 ```
 
-### add()
+#### add()
 
 Adds a new data point to algorithm, calculates the standard deviations and moving average.
 
@@ -45,7 +45,7 @@ Adds a new data point to algorithm, calculates the standard deviations and movin
 peakdetection.add(datapoint);
 ```
 
-### getPeak()
+#### getPeak()
 
 Returns peak status of the last data point added. {-1, 0, 1}, representing below, within or above standard deviation threshold, respectively.
 
@@ -53,7 +53,7 @@ Returns peak status of the last data point added. {-1, 0, 1}, representing below
 double peak = peakdetection.getPeak();
 ```
 
-### getFilt()
+#### getFilt()
 
 Returns last data point filtered by the moving average.
 
@@ -66,7 +66,7 @@ double filtered = peakdetection.getFilt();
 To use the library:
 
 1. Download the zip and uncompress the downloaded file.
-2. Copy the folder to the Arduino libraries folder (_C:/Users/username/Documents/Arduino/libraries_).
+2. Copy the folder to the Arduino libraries folder (`_C:/Users/username/Documents/Arduino/libraries_`).
 3. Rename it to PeakDetection.
 
 ## Example
@@ -100,6 +100,10 @@ void loop() {
 ### Output
 
 ![Example output](https://github.com/leandcesar/PeakDetection/blob/master/examples/output.gif)
+
+## Author
+
+- Leandro César Cassimiro - leandcesar@hotmail.com - [@leandcesar](https://linktr.ee/leandcesar)
 
 ## Credits
 
