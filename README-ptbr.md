@@ -16,14 +16,14 @@ O algoritmo tem 3 entradas:
 
 * `influence`: é o z-score no qual o algoritmo sinaliza. Este parâmetro determina a influência dos sinais no threshold de detecção do algoritmo. Se colocar em 0, os sinais não terão influência sobre o threshold, de forma que os sinais futuros serão detectados com base em um threshold que é calculado com uma média e um desvio-padrão que não é influenciado por sinais anteriores. Você deve colocar esse parâmetro entre 0 e 1, dependendo da medida em que os sinais podem influenciar sistematicamente a tendência de variação de tempo dos dados.
 
-## Funções
+### Funções
 
 - begin()
 - add()
 - getPeak()
 - getFilt()
 
-### begin()
+#### begin()
 
 Inicializa o objeto PeakDetection e as configurações para os parâmetros de ajustes. Se nenhum parâmetro for definido, o padrão permanece.
 
@@ -37,7 +37,7 @@ Alternadamente:
 peakdetection.begin(); //lag=32, threshold=2, influence=0.5
 ```
 
-### add()
+#### add()
 
 Adiciona um novo data point ao algoritmo, calcula o desvio-padrão e a média móvel.
 
@@ -45,7 +45,7 @@ Adiciona um novo data point ao algoritmo, calcula o desvio-padrão e a média m�
 peakdetection.add(datapoint);
 ```
 
-### getPeak()
+#### getPeak()
 
 Retorna o status do pico do último data point adicionado. {-1, 0, 1}, representando abaixo, dentro ou acima do threshold do desvio padrão, respectivamente.
 
@@ -53,7 +53,7 @@ Retorna o status do pico do último data point adicionado. {-1, 0, 1}, represent
 double peak = peakdetection.getPeak();
 ```
 
-### getFilt()
+#### getFilt()
 
 Retorna o último data point filtrado pela média móvel.
 
@@ -66,7 +66,7 @@ double filtered = peakdetection.getFilt();
 Para usar essa biblioteca:
 
 1. Baixe o zip e descompacte o arquivo baixado.
-2. Copie a pasta para a pasta de bibliotecas do Arduino (_C:/Users/username/Documents/Arduino/libraries_).
+2. Copie a pasta para a pasta de bibliotecas do Arduino (`_C:/Users/username/Documents/Arduino/libraries_`).
 3. Renomeie para PeakDetection.
 
 ## Exemplo
@@ -101,6 +101,10 @@ void loop() {
 
 ![Example output](https://github.com/leandcesar/PeakDetection/blob/master/examples/output.gif)
 
-## Créditos
+## Autor
+
+- Leandro César Cassimiro - leandcesar@hotmail.com - [@leandcesar](https://linktr.ee/leandcesar)
+
+## Agradecimentos
 
 * [StackOverFlow](https://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data).
