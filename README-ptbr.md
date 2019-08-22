@@ -66,7 +66,7 @@ double filtered = peakdetection.getFilt();
 Para usar essa biblioteca:
 
 1. Baixe o zip e descompacte o arquivo baixado.
-2. Copie a pasta para a pasta de bibliotecas do Arduino (`_C:/Users/username/Documents/Arduino/libraries_`).
+2. Copie a pasta para a pasta de bibliotecas do Arduino (`C:/Users/username/Documents/Arduino/libraries`).
 3. Renomeie para PeakDetection.
 
 ## Exemplo
